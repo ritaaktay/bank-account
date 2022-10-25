@@ -11,7 +11,14 @@ describe("Account", () => {
 
   it("can make a deposit", () => {
     const account = new Account(Deposit, Withdrawal);
-    account.deposit(50);
+    account.makeDeposit(50);
+    expect(account.balance()).toEqual(50);
+  });
+
+  it("can make a withdrawal", () => {
+    const account = new Account(Deposit, Withdrawal);
+    account.makeDeposit(50);
+    account.makeWithdrawal(50);
     expect(account.balance()).toEqual(0);
   });
 });

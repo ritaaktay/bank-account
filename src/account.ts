@@ -16,4 +16,14 @@ export class Account {
     if (this.transactions.length == 0) return 0;
     else return this.transactions[this.transactions.length - 1].balance;
   };
+
+  makeDeposit = (amount: number) => {
+    const deposit = new Deposit(amount, this.balance());
+    this.transactions.push(deposit);
+  };
+
+  makeWithdrawal = (amount: number) => {
+    const withdrawal = new Withdrawal(amount, this.balance());
+    this.transactions.push(withdrawal);
+  };
 }
