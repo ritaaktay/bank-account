@@ -21,4 +21,21 @@ describe("Account", () => {
     account.makeWithdrawal(50);
     expect(account.balance()).toEqual(0);
   });
+
+  it("will not allow withdrawal exceeding balance", () => {
+    const account = new Account(Deposit, Withdrawal);
+    account.makeDeposit(50);
+    expect(() => {
+      account.makeWithdrawal(100);
+    }).toThrowError("Insufficient funds");
+  });
+
+  it("can calculate current balance", () => {
+    const account = new Account(Deposit, Withdrawal);
+    account.makeDeposit(50);
+    account.makeDeposit(50);
+    account.makeWithdrawal(50);
+    account.makeDeposit(50);
+    expect(account.balance()).toEqual(100);
+  });
 });

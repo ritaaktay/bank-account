@@ -23,6 +23,7 @@ export class Account {
   };
 
   makeWithdrawal = (amount: number) => {
+    if (this.balance() < amount) throw Error("Insufficient funds");
     const withdrawal = new Withdrawal(amount, this.balance());
     this.transactions.push(withdrawal);
   };
