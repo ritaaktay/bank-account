@@ -1,6 +1,4 @@
 import { Account } from "./account";
-import { Withdrawal } from "./withdrawal";
-import { Deposit } from "./deposit";
 
 export class Statement {
   private account: Account;
@@ -21,11 +19,11 @@ export class Statement {
     return "date || credit || debit || balance\n";
   };
 
-  formatTransaction = (transaction: Deposit | Withdrawal): string => {
+  formatTransaction = (transaction: Transaction): string => {
     const date = this.formatDate(transaction.date);
     const amount = this.formatAmount(transaction.amount);
     const balance = this.formatAmount(transaction.balance);
-    if (transaction instanceof Deposit) {
+    if (transaction.type === "Deposit") {
       return date + " || " + amount + " || || " + balance;
     } else {
       return date + " || || " + amount + " || " + balance;

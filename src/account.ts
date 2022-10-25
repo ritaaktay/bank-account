@@ -1,26 +1,32 @@
-import { Deposit } from "./deposit";
-import { Withdrawal } from "./withdrawal";
+import createDeposit from "./createDeposit";
+import createWithdrawal from "./createWithdrawal";
 
 export class Account {
-  public transactions: (Deposit | Withdrawal)[];
+  public transactions: Transaction[];
+  private createDeposit: TransactionCreator;
+  private createWithdrawal: TransactionCreator;
 
-  constructor() {
+  constructor(deposit: TransactionCreator, withdrawal: TransactionCreator) {
     this.transactions = [];
+    this.createWithdrawal = withdrawal;
+    this.createDeposit = deposit;
   }
 
   balance = (): number => {
-    if (this.transactions.length == 0) return 0;
+    if (this.transactions.length === 0) return 0;
     else return this.transactions[this.transactions.length - 1].balance;
   };
 
   makeDeposit = (amount: number) => {
-    const deposit = new Deposit(amount, this.balance());
+    const deposit = this.createDeposit(amount, this.balance());
     this.transactions.push(deposit);
   };
 
   makeWithdrawal = (amount: number) => {
+    console.log(this.balance());
+    console.log(amount);
     if (this.balance() < amount) throw Error("Insufficient funds");
-    const withdrawal = new Withdrawal(amount, this.balance());
+    const withdrawal = this.createWithdrawal(amount, this.balance());
     this.transactions.push(withdrawal);
   };
 }

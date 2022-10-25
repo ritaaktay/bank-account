@@ -10,5 +10,6 @@
     // If types is specified, only packages listed will be included in the global scope.
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "esModuleInterop": "true"
 }

@@ -1,33 +1,32 @@
-import { Deposit } from "./deposit";
-
+import { Deposit } from './deposit'
 export class Statement {
-  constructor(account) {
+  constructor (account) {
     this.generate = () => {
-      let statement = this.getHeader();
+      let statement = this.getHeader()
       statement += this.account.transactions
         .map((transaction) => this.formatTransaction(transaction))
-        .join("\n");
-      return statement;
-    };
+        .join('\n')
+      return statement
+    }
     this.getHeader = () => {
-      return "date || credit || debit || balance\n";
-    };
+      return 'date || credit || debit || balance\n'
+    }
     this.formatTransaction = (transaction) => {
-      const date = this.formatDate(transaction.date);
-      const amount = this.formatAmount(transaction.amount);
-      const balance = this.formatAmount(transaction.balance);
+      const date = this.formatDate(transaction.date)
+      const amount = this.formatAmount(transaction.amount)
+      const balance = this.formatAmount(transaction.balance)
       if (transaction instanceof Deposit) {
-        return date + " || " + amount + " || || " + balance;
+        return date + ' || ' + amount + ' || || ' + balance
       } else {
-        return date + " || || " + amount + " || " + balance;
+        return date + ' || || ' + amount + ' || ' + balance
       }
-    };
+    }
     this.formatDate = (date) => {
-      return date.toLocaleString("en-GB").split(",")[0];
-    };
+      return date.toLocaleString('en-GB').split(',')[0]
+    }
     this.formatAmount = (amount) => {
-      return amount.toFixed(2);
-    };
-    this.account = account;
+      return amount.toFixed(2)
+    }
+    this.account = account
   }
 }
