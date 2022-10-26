@@ -2,9 +2,11 @@ import { Account } from "./account";
 
 export class Statement {
   private account: Account;
+  private header: string;
 
   constructor(account: Account) {
     this.account = account;
+    this.header = "date || credit || debit || balance\n";
   }
 
   generate = (): string => {
@@ -17,15 +19,16 @@ export class Statement {
   };
 
   getHeader = (): string => {
-    return "date || credit || debit || balance\n";
+    return this.header;
   };
 
   formatTransaction = (transaction: Transaction): string => {
     const date = this.formatDate(transaction.date);
     const amount = this.formatAmount(transaction.amount);
     const balance = this.formatAmount(transaction.balance);
-    if (transaction.type === "Deposit")
+    if (transaction.type === "Deposit") {
       return date + " || " + amount + " || || " + balance;
+    }
     return date + " || || " + amount + " || " + balance;
   };
 
