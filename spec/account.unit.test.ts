@@ -33,6 +33,8 @@ describe("", () => {
     });
     const account = new Account(mockDeposit, mockWithdrawal);
     account.makeDeposit(50);
+    expect(mockDeposit).toHaveBeenCalledTimes(1);
+    expect(mockDeposit).toHaveBeenCalledWith(50, 0);
     expect(account.balance()).toEqual(50);
   });
 
@@ -56,6 +58,10 @@ describe("", () => {
     const account = new Account(mockDeposit, mockWithdrawal);
     account.makeDeposit(50);
     account.makeWithdrawal(40);
+    expect(mockDeposit).toHaveBeenCalledTimes(1);
+    expect(mockDeposit).toHaveBeenCalledWith(50, 0);
+    expect(mockWithdrawal).toHaveBeenCalledTimes(1);
+    expect(mockWithdrawal).toHaveBeenCalledWith(40, 50);
     expect(account.balance()).toEqual(10);
   });
 
@@ -73,6 +79,9 @@ describe("", () => {
     expect(() => {
       account.makeWithdrawal(100);
     }).toThrowError("Insufficient funds");
+    expect(mockDeposit).toHaveBeenCalledTimes(1);
+    expect(mockDeposit).toHaveBeenCalledWith(50, 0);
+    expect(mockWithdrawal).not.toHaveBeenCalled();
   });
 
   it("can calculate current balance", () => {
@@ -114,5 +123,11 @@ describe("", () => {
     account.makeWithdrawal(50);
     account.makeDeposit(50);
     expect(account.balance()).toEqual(100);
+    expect(mockDeposit).toHaveBeenCalledTimes(3);
+    expect(mockWithdrawal).toHaveBeenCalledTimes(1);
+    expect(mockDeposit).toHaveBeenNthCalledWith(1, 50, 0);
+    expect(mockDeposit).toHaveBeenNthCalledWith(2, 50, 50);
+    expect(mockWithdrawal).toHaveBeenCalledWith(50, 100);
+    expect(mockDeposit).toHaveBeenNthCalledWith(3, 50, 50);
   });
 });

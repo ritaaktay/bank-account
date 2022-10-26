@@ -66,6 +66,7 @@ describe("Statement", () => {
     expect(statement.generate()).toEqual(
       "date || credit || debit || balance\n"
     );
+    expect(mockGetTransactions).toHaveBeenCalledTimes(1);
   });
 
   it("formats a transaction", () => {
@@ -75,6 +76,7 @@ describe("Statement", () => {
     expect(statement.generate()).toEqual(
       "date || credit || debit || balance\n" + date + " || 50.00 || || 50.00"
     );
+    expect(mockGetTransactions).toHaveBeenCalledTimes(2);
   });
 
   it("formats many transactions", () => {
@@ -92,5 +94,6 @@ describe("Statement", () => {
         date +
         " || || 10.00 || 65.00"
     );
+    expect(mockGetTransactions).toHaveBeenCalledTimes(3);
   });
 });
