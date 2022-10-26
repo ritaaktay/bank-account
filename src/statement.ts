@@ -24,11 +24,9 @@ export class Statement {
     const date = this.formatDate(transaction.date);
     const amount = this.formatAmount(transaction.amount);
     const balance = this.formatAmount(transaction.balance);
-    if (transaction.type === "Deposit") {
+    if (transaction.type === "Deposit")
       return date + " || " + amount + " || || " + balance;
-    } else {
-      return date + " || || " + amount + " || " + balance;
-    }
+    return date + " || || " + amount + " || " + balance;
   };
 
   formatDate = (date: Date): string => {

@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 describe("", () => {
-  it("stores history of transactions", () => {
+  it("stores a history of transactions that starts as empty", () => {
     const account = new Account(mockDeposit, mockWithdrawal);
     expect(account.balance()).toEqual(0);
   });
@@ -84,7 +84,7 @@ describe("", () => {
     expect(mockWithdrawal).not.toHaveBeenCalled();
   });
 
-  it("can calculate current balance", () => {
+  it("can calculate current balance with many transactions", () => {
     const account = new Account(mockDeposit, mockWithdrawal);
     mockDeposit.mockImplementationOnce(() => {
       return {

@@ -4,7 +4,7 @@ import createDeposit from "../src/createDeposit";
 import createWithdrawal from "../src/createWithdrawal";
 
 describe("Account", () => {
-  it("stores history of transactions", () => {
+  it("stores history of transactions that starts empty", () => {
     const account = new Account(createDeposit, createWithdrawal);
     expect(account.balance()).toEqual(0);
   });
@@ -30,7 +30,7 @@ describe("Account", () => {
     }).toThrowError("Insufficient funds");
   });
 
-  it("can calculate current balance", () => {
+  it("can calculate current balance after many transactions", () => {
     const account = new Account(createDeposit, createWithdrawal);
     account.makeDeposit(50);
     account.makeDeposit(50);
