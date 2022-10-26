@@ -9,7 +9,7 @@
 
 #### Approach
 
-- `Deposit` & `Withdrawal` classes derive from a `Transaction` parent class and store date, amount and balance after transaction
-- `Account` class has `makeDeposit()` and `makeWithdrawal()` methods that add instances of `Deposit` or `Withdrawal` to a transactions array
-- The account balance is the balance of the last transaction in the array
-- The `Statement` class iterates over the transactions of an `Account` instance and formats the information as a string
+- `createDeposit` & `createWithdrawal` are factory functions that produce objects of type `Transaction`.
+- `Account` class has `makeDeposit()` and `makeWithdrawal()` methods that add a `createDeposit()` or `createWithdrawal()` to a transactions array
+- The current account balance is the balance of the last transaction in the array. As each transaction stores its own resulting balance the transaction history can be displayed.
+- The `Statement` class iterates over the transactions array of an `Account` instance and formats the information as a string including date, amount and balance per transaction.

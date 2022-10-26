@@ -58,6 +58,7 @@ jest.mock("../src/account", () => {
     }),
   };
 });
+
 describe("Statement", () => {
   it("has a header", () => {
     const mockAccount = new Account(mockDeposit, mockWithdrawal);
