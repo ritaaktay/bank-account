@@ -12,6 +12,10 @@ export class Account {
     this.createDeposit = deposit;
   }
 
+  getTransactions = (): Transaction[] => {
+    return this.transactions;
+  };
+
   balance = (): number => {
     if (this.transactions.length === 0) return 0;
     else return this.transactions[this.transactions.length - 1].balance;

@@ -9,7 +9,8 @@ export class Statement {
 
   generate = (): string => {
     let statement = this.getHeader();
-    statement += this.account.transactions
+    statement += this.account
+      .getTransactions()
       .map((transaction) => this.formatTransaction(transaction))
       .join("\n");
     return statement;
