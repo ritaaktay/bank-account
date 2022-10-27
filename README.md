@@ -12,7 +12,7 @@
 - `createDeposit` & `createWithdrawal` are factory functions that produce objects of type `Transaction`.
 - `Account` class has `makeDeposit()` and `makeWithdrawal()` methods that add a `createDeposit()` or `createWithdrawal()` to a transactions array
 - The current account balance is the balance of the last transaction in the array. As each transaction stores its own resulting balance the transaction history can be displayed.
-- The `Statement` class iterates over the transactions array of an `Account` instance and formats the information as a string including date, amount and balance per transaction.
+- The `Statement` class iterates over the reversed transactions array of an `Account` instance and formats the information as a string including date, amount and balance per transaction in reverse chornological order.
 
 #### Mocking with Jest & TypeScript
 
