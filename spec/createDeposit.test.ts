@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from "@jest/globals";
-import createDeposit from "../src/createDeposit";
+import { createDeposit } from "../src/createDeposit";
 
 describe("Deposit", () => {
   it("stores the deposit amount", () => {

@@ -1,4 +1,4 @@
-export default function (amount: number, balance: number): Transaction {
+export const createDeposit = (amount: number, balance: number): Transaction => {
   return {
     amount: amount,
     balance: balance + amount,

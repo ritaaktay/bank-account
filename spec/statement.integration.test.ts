@@ -1,8 +1,8 @@
 import { describe, expect, it, test } from "@jest/globals";
 import { Account } from "../src/account";
 import { Statement } from "../src/statement";
-import createWithdrawal from "../src/createWithdrawal";
-import createDeposit from "../src/createDeposit";
+import { createDeposit } from "../src/createDeposit";
+import { createWithdrawal } from "../src/createWithdrawal";
 
 describe("Statement", () => {
   it("has a header", () => {

@@ -1,5 +1,5 @@
-import createDeposit from "./createDeposit";
-import createWithdrawal from "./createWithdrawal";
+import { createDeposit } from "./createDeposit";
+import { createWithdrawal } from "./createWithdrawal";
 
 export class Account {
   public transactions: Transaction[];

@@ -1,7 +1,7 @@
 import { describe, expect, it, test } from "@jest/globals";
 import { Account } from "../src/account";
-import createDeposit from "../src/createDeposit";
-import createWithdrawal from "../src/createWithdrawal";
+import { createDeposit } from "../src/createDeposit";
+import { createWithdrawal } from "../src/createWithdrawal";
 
 describe("Account", () => {
   it("stores history of transactions that starts empty", () => {

@@ -1,7 +1,7 @@
 import { describe, expect, it, jest, beforeEach } from "@jest/globals";
 import { Account } from "../src/account";
-import createDeposit from "../src/createDeposit";
-import createWithdrawal from "../src/createWithdrawal";
+import { createDeposit } from "../src/createDeposit";
+import { createWithdrawal } from "../src/createWithdrawal";
 
 jest.mock("../src/createDeposit");
 jest.mock("../src/createWithdrawal");
