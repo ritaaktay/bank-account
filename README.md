@@ -13,3 +13,7 @@
 - `Account` class has `makeDeposit()` and `makeWithdrawal()` methods that add a `createDeposit()` or `createWithdrawal()` to a transactions array
 - The current account balance is the balance of the last transaction in the array. As each transaction stores its own resulting balance the transaction history can be displayed.
 - The `Statement` class iterates over the transactions array of an `Account` instance and formats the information as a string including date, amount and balance per transaction.
+
+#### Mocking with Jest & TypeScript
+
+- Here is a [blog post](https://medium.com/@rita.aktay/makers-mocking-typescript-jest-dc917f3db9f3) I wrote about mocking with TypeScript and Jest during this project.

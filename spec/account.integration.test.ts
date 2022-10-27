@@ -6,20 +6,20 @@ import createWithdrawal from "../src/createWithdrawal";
 describe("Account", () => {
   it("stores history of transactions that starts empty", () => {
     const account = new Account(createDeposit, createWithdrawal);
-    expect(account.balance()).toEqual(0);
+    expect(account.getBalance()).toEqual(0);
   });
 
   it("can make a deposit", () => {
     const account = new Account(createDeposit, createWithdrawal);
     account.makeDeposit(50);
-    expect(account.balance()).toEqual(50);
+    expect(account.getBalance()).toEqual(50);
   });
 
   it("can make a withdrawal", () => {
     const account = new Account(createDeposit, createWithdrawal);
     account.makeDeposit(50);
     account.makeWithdrawal(50);
-    expect(account.balance()).toEqual(0);
+    expect(account.getBalance()).toEqual(0);
   });
 
   it("will not allow withdrawal exceeding balance", () => {
@@ -36,6 +36,6 @@ describe("Account", () => {
     account.makeDeposit(50);
     account.makeWithdrawal(50);
     account.makeDeposit(50);
-    expect(account.balance()).toEqual(100);
+    expect(account.getBalance()).toEqual(100);
   });
 });

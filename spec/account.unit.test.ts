@@ -19,7 +19,7 @@ beforeEach(() => {
 describe("", () => {
   it("stores a history of transactions that starts as empty", () => {
     const account = new Account(mockDeposit, mockWithdrawal);
-    expect(account.balance()).toEqual(0);
+    expect(account.getBalance()).toEqual(0);
   });
 
   it("can make a deposit", () => {
@@ -35,7 +35,7 @@ describe("", () => {
     account.makeDeposit(50);
     expect(mockDeposit).toHaveBeenCalledTimes(1);
     expect(mockDeposit).toHaveBeenCalledWith(50, 0);
-    expect(account.balance()).toEqual(50);
+    expect(account.getBalance()).toEqual(50);
   });
 
   it("can make a withdrawal", () => {
@@ -62,7 +62,7 @@ describe("", () => {
     expect(mockDeposit).toHaveBeenCalledWith(50, 0);
     expect(mockWithdrawal).toHaveBeenCalledTimes(1);
     expect(mockWithdrawal).toHaveBeenCalledWith(40, 50);
-    expect(account.balance()).toEqual(10);
+    expect(account.getBalance()).toEqual(10);
   });
 
   it("will not allow withdrawal exceeding balance", () => {
@@ -122,7 +122,7 @@ describe("", () => {
     account.makeDeposit(50);
     account.makeWithdrawal(50);
     account.makeDeposit(50);
-    expect(account.balance()).toEqual(100);
+    expect(account.getBalance()).toEqual(100);
     expect(mockDeposit).toHaveBeenCalledTimes(3);
     expect(mockWithdrawal).toHaveBeenCalledTimes(1);
     expect(mockDeposit).toHaveBeenNthCalledWith(1, 50, 0);

@@ -16,19 +16,19 @@ export class Account {
     return this.transactions;
   };
 
-  balance = (): number => {
+  getBalance = (): number => {
     if (this.transactions.length === 0) return 0;
     else return this.transactions[this.transactions.length - 1].balance;
   };
 
   makeDeposit = (amount: number) => {
-    const deposit = this.createDeposit(amount, this.balance());
+    const deposit = this.createDeposit(amount, this.getBalance());
     this.transactions.push(deposit);
   };
 
   makeWithdrawal = (amount: number) => {
-    if (this.balance() < amount) throw Error("Insufficient funds");
-    const withdrawal = this.createWithdrawal(amount, this.balance());
+    if (this.getBalance() < amount) throw Error("Insufficient funds");
+    const withdrawal = this.createWithdrawal(amount, this.getBalance());
     this.transactions.push(withdrawal);
   };
 }
