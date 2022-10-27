@@ -10,33 +10,33 @@ export class Statement {
   }
 
   generate = (): string => {
-    let statement = this.getHeader();
+    let statement = this.#getHeader();
     statement += this.account
       .getTransactions().reverse()
-      .map((transaction) => this.formatTransaction(transaction))
+      .map((transaction) => this.#formatTransaction(transaction))
       .join("\n");
     return statement;
   };
 
-  getHeader = (): string => {
+  #getHeader = (): string => {
     return this.header;
   };
 
-  formatTransaction = (transaction: Transaction): string => {
-    const date = this.formatDate(transaction.date);
-    const amount = this.formatAmount(transaction.amount);
-    const balance = this.formatAmount(transaction.balance);
+  #formatTransaction = (transaction: Transaction): string => {
+    const date = this.#formatDate(transaction.date);
+    const amount = this.#formatAmount(transaction.amount);
+    const balance = this.#formatAmount(transaction.balance);
     if (transaction.type === "deposit") {
       return date + " || " + amount + " || || " + balance;
     }
     return date + " || || " + amount + " || " + balance;
   };
 
-  formatDate = (date: Date): string => {
+  #formatDate = (date: Date): string => {
     return date.toLocaleString("en-GB").split(",")[0];
   };
 
-  formatAmount = (amount: number): string => {
+  #formatAmount = (amount: number): string => {
     return amount.toFixed(2);
   };
 }

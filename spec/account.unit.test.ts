@@ -19,7 +19,7 @@ beforeEach(() => {
 describe("", () => {
   it("stores a history of transactions that starts as empty", () => {
     const account = new Account(mockDeposit, mockWithdrawal);
-    expect(account.getBalance()).toEqual(0);
+    expect(account.getTransactions()).toEqual([]);
   });
 
   it("can make a deposit", () => {
