@@ -13,7 +13,7 @@ export class Statement {
     let statement = this.#getHeader();
     statement += this.account
       .getTransactions().reverse()
-      .map((transaction) => this.#formatTransaction(transaction))
+      .map(this.#formatTransaction)
       .join("\n");
     return statement;
   };
