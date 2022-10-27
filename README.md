@@ -20,4 +20,4 @@
 
 #### Test Coverage
 
-![]("./test-coverage.png")
+![]("./test_coverage.png")
