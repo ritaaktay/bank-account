@@ -17,3 +17,7 @@
 #### Mocking with Jest & TypeScript
 
 - Here is a [blog post](https://medium.com/@rita.aktay/makers-mocking-typescript-jest-dc917f3db9f3) I wrote about mocking with TypeScript and Jest during this project.
+
+#### Test Coverage
+
+![]("./test-coverage.png")
