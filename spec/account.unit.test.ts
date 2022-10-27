@@ -28,7 +28,7 @@ describe("", () => {
         amount: 50,
         balance: 50,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     const account = new Account(mockDeposit, mockWithdrawal);
@@ -44,7 +44,7 @@ describe("", () => {
         amount: 50,
         balance: 50,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     mockWithdrawal.mockImplementation(() => {
@@ -52,7 +52,7 @@ describe("", () => {
         amount: 40,
         balance: 10,
         date: new Date(),
-        type: "Deposit",
+        type: "withdrawal",
       };
     });
     const account = new Account(mockDeposit, mockWithdrawal);
@@ -71,7 +71,7 @@ describe("", () => {
         amount: 50,
         balance: 50,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     const account = new Account(mockDeposit, mockWithdrawal);
@@ -91,7 +91,7 @@ describe("", () => {
         amount: 50,
         balance: 50,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     mockDeposit.mockImplementationOnce(() => {
@@ -99,7 +99,7 @@ describe("", () => {
         amount: 50,
         balance: 100,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     mockWithdrawal.mockImplementation(() => {
@@ -107,7 +107,7 @@ describe("", () => {
         amount: 50,
         balance: 50,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     mockDeposit.mockImplementationOnce(() => {
@@ -115,7 +115,7 @@ describe("", () => {
         amount: 50,
         balance: 100,
         date: new Date(),
-        type: "Deposit",
+        type: "deposit",
       };
     });
     account.makeDeposit(50);

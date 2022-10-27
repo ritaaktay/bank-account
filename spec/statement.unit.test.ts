@@ -22,7 +22,7 @@ mockGetTransactions.mockImplementationOnce(() => {
       amount: 50,
       balance: 50,
       date: new Date(),
-      type: "Deposit",
+      type: "deposit",
     },
   ];
 });
@@ -32,19 +32,19 @@ mockGetTransactions.mockImplementationOnce(() => {
       amount: 50,
       balance: 50,
       date: new Date(),
-      type: "Deposit",
+      type: "deposit",
     },
     {
       amount: 25,
       balance: 75,
       date: new Date(),
-      type: "Deposit",
+      type: "deposit",
     },
     {
       amount: 10,
       balance: 65,
       date: new Date(),
-      type: "Withdrawal",
+      type: "withdrawal",
     },
   ];
 });

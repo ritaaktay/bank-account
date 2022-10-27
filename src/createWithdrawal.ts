@@ -3,6 +3,6 @@ export default function (amount: number, balance: number): Transaction {
     amount: amount,
     balance: balance - amount,
     date: new Date(),
-    type: "Withdrawal",
+    type: "withdrawal",
   };
 }
