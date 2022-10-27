@@ -12,7 +12,7 @@ export class Statement {
   generate = (): string => {
     let statement = this.getHeader();
     statement += this.account
-      .getTransactions()
+      .getTransactions().reverse()
       .map((transaction) => this.formatTransaction(transaction))
       .join("\n");
     return statement;

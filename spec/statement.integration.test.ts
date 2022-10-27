@@ -23,7 +23,7 @@ describe("Statement", () => {
     );
   });
 
-  it("formats many transactions", () => {
+  it("formats many transactions in reverse chornological order", () => {
     const account = new Account(createDeposit, createWithdrawal);
     account.makeDeposit(50);
     account.makeDeposit(25);
@@ -33,13 +33,13 @@ describe("Statement", () => {
     expect(statement.generate()).toEqual(
       "date || credit || debit || balance\n" +
         date +
-        " || 50.00 || || 50.00" +
+        " || || 10.00 || 65.00" +
         "\n" +
         date +
         " || 25.00 || || 75.00" +
         "\n" +
         date +
-        " || || 10.00 || 65.00"
+        " || 50.00 || || 50.00" 
     );
   });
 });

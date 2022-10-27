@@ -86,13 +86,13 @@ describe("Statement", () => {
     expect(statement.generate()).toEqual(
       "date || credit || debit || balance\n" +
         date +
-        " || 50.00 || || 50.00" +
+        " || || 10.00 || 65.00" +
         "\n" +
         date +
         " || 25.00 || || 75.00" +
         "\n" +
         date +
-        " || || 10.00 || 65.00"
+        " || 50.00 || || 50.00" 
     );
     expect(mockGetTransactions).toHaveBeenCalledTimes(3);
   });
